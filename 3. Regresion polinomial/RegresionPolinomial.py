@@ -3,21 +3,23 @@ Regresi贸n Polinomial
 @author: 
 """
 
-########## LIBRER脥AS A UTILIZAR ##########
-#Se importan la librerias a utilizar
+#%% Importo librer韆s a utilizar
+
 import numpy as np
 from sklearn import datasets, linear_model
 import matplotlib.pyplot as plt
 
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import PolynomialFeatures
 
-########## PREPARAR LA DATA ##########
+
+#%% Preparaci髇 y comprensi髇 de los datos
+
 #Importamos los datos de la misma librer铆a de scikit-learn
 boston = datasets.load_boston()
 print(boston)
 print()
 
-
-########## ENTENDIMIENTO DE LA DATA ##########
 #Verifico la informaci贸n contenida en el dataset
 print('Informaci贸n en el dataset:')
 print(boston.keys())
@@ -36,8 +38,6 @@ print()
 print('Nombres columnas:')
 print(boston.feature_names)
 
-
-########## PREPARAR LA DATA REGRESI脫N POLINOMIAL ##########
 #Seleccionamos solamente la columna 6 del dataset
 X_p = boston.data[:, np.newaxis, 5]
 
@@ -49,12 +49,10 @@ plt.scatter(X_p, y_p)
 plt.show()
 
 
-########## IMPLEMENTACI脫N DE REGRESI脫N POLINOMIAL ##########
-from sklearn.model_selection import train_test_split
+#%% Implementaci髇 del modelo de Regresi髇 Polinomial
 
 #Separo los datos de "train" en entrenamiento y prueba para probar los algoritmos
 X_train_p, X_test_p, y_train_p, y_test_p = train_test_split(X_p, y_p, test_size=0.2)
-from sklearn.preprocessing import PolynomialFeatures
 
 #Se define el grado del polinomio
 poli_reg = PolynomialFeatures(degree = 2)
@@ -71,6 +69,9 @@ pr.fit(X_train_poli, y_train_p)
 
 #Realizo una predicci贸n
 Y_pred_pr = pr.predict(X_test_poli)
+
+
+#%% Resultados del modelo
 
 #Graficamos los datos junto con el modelo
 plt.scatter(X_test_p, y_test_p)

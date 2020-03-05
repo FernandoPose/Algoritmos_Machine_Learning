@@ -3,19 +3,19 @@ Regresión Lineal Múltiple
 @author: 
 """
 
-########## LIBRERÍAS A UTILIZAR ##########
-#Se importan la librerias a utilizar
+#%% Importo librerías a utilizar
+
 from sklearn import datasets, linear_model
+from sklearn.model_selection import train_test_split
 
 
-########## PREPARAR LA DATA ##########
+#%% Preparación y comprensión de los datos
+
 #Importamos los datos de la misma librería de scikit-learn
 boston = datasets.load_boston()
 print(boston)
 print()
 
-
-########## ENTENDIMIENTO DE LA DATA ##########
 #Verifico la información contenida en el dataset
 print('Información en el dataset:')
 print(boston.keys())
@@ -34,8 +34,6 @@ print()
 print('Nombres columnas:')
 print(boston.feature_names)
 
-
-########## PREPARAR LA DATA REGRESIÓN LINEAL MULTIPLE ##########
 #Seleccionamos las columna 5, 6 y 7 del dataset
 X_multiple = boston.data[:, 5:8]
 print(X_multiple)
@@ -44,8 +42,7 @@ print(X_multiple)
 y_multiple = boston.target
 
 
-########## IMPLEMENTACIÓN DE REGRESIÓN LINEAL MULTIPLE ##########
-from sklearn.model_selection import train_test_split
+#%% Implementación del modelo de Regresión Lineal Múltiple
 
 #Separo los datos de "train" en entrenamiento y prueba para probar los algoritmos
 X_train, X_test, y_train, y_test = train_test_split(X_multiple, y_multiple, test_size=0.2)
@@ -58,6 +55,10 @@ lr_multiple.fit(X_train, y_train)
 
 #Realizo una predicción
 Y_pred_multiple = lr_multiple.predict(X_test)
+
+
+#%% Resultados del modelo
+
 print('DATOS DEL MODELO REGRESIÓN LINEAL MULTIPLE')
 print()
 print('Valor de las pendientes o coeficientes "a":')

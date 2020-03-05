@@ -3,21 +3,22 @@ Regresión Lineal Simple
 @author: 
 """
 
-########## LIBRERÍAS A UTILIZAR ##########
-#Se importan la librerias a utilizar
+#%% Importo librerías a utilizar
+
 import numpy as np
 from sklearn import datasets, linear_model
 import matplotlib.pyplot as plt
 
+from sklearn.model_selection import train_test_split
 
-########## PREPARAR LA DATA ##########
+
+#%% Preparación y comprensión de los datos
+
 #Importamos los datos de la misma librería de scikit-learn
 boston = datasets.load_boston()
 print(boston)
 print()
 
-
-########## COMPRENSIÓN DE LA DATA ##########
 #Verifico la información contenida en el dataset
 print('Información en el dataset:')
 print(boston.keys())
@@ -34,7 +35,6 @@ print('Nombres columnas:')
 print(boston.feature_names)
 
 
-########## PREPARAR LA DATA REGRESIÓN LINEAL SIMPLE ##########
 #Seleccionamos solamente la columna 5 del dataset
 X = boston.data[:, np.newaxis, 5]
 #Defino los datos correspondientes a las etiquetas
@@ -46,8 +46,8 @@ plt.ylabel('Valor medio')
 plt.show()
 
 
-########## IMPLEMENTACIÓN DE REGRESIÓN LINEAL SIMPLE ##########
-from sklearn.model_selection import train_test_split
+#%% Implementación del modelo de Regresión Lineal Simple
+
 #Separo los datos de "train" en entrenamiento y prueba para probar los algoritmos
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 #Defino el algoritmo a utilizar
@@ -57,7 +57,8 @@ lr.fit(X_train, y_train)
 #Realizo una predicción
 Y_pred = lr.predict(X_test)
 
-#Graficamos los datos junto con el modelo
+#%% Resultados del modelo
+
 plt.scatter(X_test, y_test)
 plt.plot(X_test, Y_pred, color='red', linewidth=3)
 plt.title('Regresión Lineal Simple')
