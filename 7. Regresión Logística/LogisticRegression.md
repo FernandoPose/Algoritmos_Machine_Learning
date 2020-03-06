@@ -2,7 +2,7 @@
 
 ## Ejemplo de aplicación
 
-Dataset utilizado:  [Boston Housing ](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html#sklearn.datasets.load_boston)
+Dataset utilizado:  [Breast Cancer ](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer)
 
 
 ## Resultados del modelo
