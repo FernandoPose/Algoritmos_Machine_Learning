@@ -42,8 +42,8 @@ y = dataset.target
 #Separo los datos de "train" en entrenamiento y prueba para probar los algoritmos
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-#Defino el algoritmo a utilizar
-algoritmo = KNeighborsClassifier(n_neighbors = 5, metric = 'minkowski', p = 2)
+#Defino el algoritmo a utilizar. Los datos en los argumentos son los mismos que vienen por default
+algoritmo = KNeighborsClassifier(n_neighbors = 5, metric = 'minkowski', p = 2)  
 
 #Entreno el modelo
 algoritmo.fit(X_train, y_train)
