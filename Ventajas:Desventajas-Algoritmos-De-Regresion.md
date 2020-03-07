@@ -2,6 +2,8 @@
 
 Material obtenido de:  [ligdigonzalez.com](hhttps://ligdigonzalez.com)
 
+![Texto alternativo](algoritmos_de_regresion.png)
+
 ## Regresión Lineal
 
 #### Ventajas:
